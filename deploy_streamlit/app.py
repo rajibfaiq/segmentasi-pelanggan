@@ -1,9 +1,11 @@
+from pathlib import Path
 import streamlit as st
 import joblib
 import pandas as pd
 import numpy as np
 
-package = joblib.load("deployment_model/clustering_deployment.joblib")
+BASE_DIR = Path(__file__).parent
+package = joblib.load(BASE_DIR / "deployment_model" / "clustering_deployment.joblib")
 model = package["model"]
 scaler = package["scaler"]
 feature_columns = package["feature_columns"]
